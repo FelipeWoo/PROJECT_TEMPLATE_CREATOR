@@ -1,0 +1,14 @@
+\begin{thebibliography}{}
+
+\bibitem[Pressman, 2005]{pressman2005ingenieria}
+Pressman, R.~S. (2005).
+\newblock {\em Ingeniería del Software: Un Enfoque Práctico}.
+\newblock McGraw-Hill, 6 edition.
+
+\bibitem[Turing, 1936]{turing1936}
+Turing, A. (1936).
+\newblock On computable numbers, with an application to the
+  entscheidungsproblem.
+\newblock {\em Proceedings of the London Mathematical Society}, 2(42):230--265.
+
+\end{thebibliography}

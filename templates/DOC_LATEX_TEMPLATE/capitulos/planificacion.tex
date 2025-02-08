@@ -1,0 +1,105 @@
+\chapter{Planificación del Proyecto}
+
+
+
+\section{Metodología}
+
+En esta sección se describe la metodología utilizada para el desarrollo del proyecto. Se pueden incluir enfoques como metodologías ágiles (*Scrum*, *Kanban*), modelos tradicionales (*cascada*, *V*), o metodologías híbridas. 
+
+Ejemplo de contenido:
+\begin{quote}
+	Para el desarrollo de este proyecto se ha elegido la metodología \textbf{Scrum}, debido a su enfoque iterativo e incremental, lo que permitirá entregar versiones funcionales del producto en cortos periodos de tiempo. Se establecerán sprints de dos semanas con reuniones diarias de seguimiento.
+\end{quote}
+
+También puedes agregar un esquema visual con TikZ o una imagen:
+
+\begin{center}
+	\begin{otherlanguage}{english} % Desactiva babel temporalmente
+		\begin{tikzpicture}[
+			node distance=2cm and 4cm,
+			align=center,
+			every node/.style={draw, rounded corners=3pt, minimum width=5cm, minimum height=1cm, font=\small},
+			every path/.style={draw, thick, -latex}
+			]
+			% Nodos principales
+			\node (problem) {Problema Inicial};
+			\node[right=of problem] (contradiction) {Identificación de Contradicción};
+			\node[below=of contradiction] (principles) {Principios de Innovación TRIZ};
+			\node[left=of principles] (solution) {Solución Innovadora};
+			
+			% Flechas de conexión
+			\draw[->] (problem.east) -- (contradiction.west);
+			\draw[->] (contradiction.south) -- (principles.north);
+			\draw[->] (principles.west) -- (solution.east);
+			\draw[->] (solution.north) to[out=120,in=240] (problem.west);
+			
+		\end{tikzpicture}
+	\end{otherlanguage} % Reactivar babel en español
+\end{center}
+
+
+
+
+
+\section{Cronograma / Roadmap}
+
+En esta sección se presenta el cronograma de actividades, el roadmap o el diagrama de Gantt para la planificación del proyecto. Se puede incluir un esquema con TikZ, una tabla o una imagen.
+
+Ejemplo de una tabla con las fases del proyecto:
+
+\begin{table}[h] 
+	\centering 
+	\begin{tabular}{|c|l|c|}
+		\hline
+		\textbf{Fase} & \textbf{Descripción} & \textbf{Duración} \\ \hline
+		1 & Análisis de Requisitos & 2 semanas \\ \hline
+		2 & Diseño del Sistema & 3 semanas \\ \hline
+		3 & Desarrollo & 6 semanas \\ \hline
+		4 & Pruebas y Ajustes & 4 semanas \\ \hline
+		5 & Implementación & 2 semanas \\ \hline
+	\end{tabular} 
+	\caption{Cronograma del Proyecto} 
+\end{table}
+
+
+\begin{sidewaysfigure}
+	\centering
+	\begin{ganttchart}[
+		x unit=1.5cm,
+		y unit chart=0.8cm
+		]{1}{10}
+		\gantttitle{Cronograma del Proyecto}{10} \\
+		\gantttitlelist{1,...,10}{1} \\
+		\ganttbar{Análisis de Requisitos}{1}{2} \\
+		\ganttbar{Diseño del Sistema}{3}{5} \\
+		\ganttbar{Desarrollo}{6}{8} \\
+		\ganttbar{Pruebas y Ajustes}{9}{10} \\
+	\end{ganttchart}
+	\caption{Cronograma del Proyecto (Rotado)}
+\end{sidewaysfigure}
+
+
+
+
+\section{Recursos Necesarios}
+
+Esta sección describe los recursos necesarios para el desarrollo del proyecto. Se pueden dividir en:
+
+\subsection{Recursos Humanos} Listado de los roles y responsables en el proyecto: \begin{itemize} \item \textbf{Gerente del Proyecto} - Coordina y supervisa el desarrollo. \item \textbf{Desarrolladores} - Implementan la solución. \item \textbf{Diseñadores UX/UI} - Crean interfaces intuitivas. \item \textbf{Tester / QA} - Evalúan la calidad del producto. \end{itemize}
+
+\subsection{Recursos Tecnológicos} Listado del software y hardware requerido: \begin{itemize} \item \textbf{Software:} PostgreSQL, Python (Flask/Django), React, Docker, Podman. \item \textbf{Hardware:} Servidor local con 32GB de RAM, almacenamiento SSD de 1TB. \end{itemize}
+
+\subsection{Recursos Financieros} Se pueden incluir costos estimados, licencias y presupuesto general del proyecto.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|c|}
+		\hline
+		\textbf{Recurso} & \textbf{Costo Estimado} \\ \hline
+		Servidor VPS & \$500 USD / año \\ \hline
+		Licencias de Software & \$200 USD / año \\ \hline
+		Equipos de Desarrollo & \$1500 USD \\ \hline
+		Total & \$2200 USD \\ \hline
+	\end{tabular}
+	\caption{Presupuesto estimado del proyecto}
+\end{table}

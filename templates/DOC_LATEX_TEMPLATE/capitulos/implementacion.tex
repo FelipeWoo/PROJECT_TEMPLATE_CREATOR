@@ -1,0 +1,122 @@
+\chapter{Implementación Técnica}
+
+\section{Diseño y Arquitectura}
+
+El diseño y la arquitectura del sistema definen cómo se estructuran los componentes y cómo interactúan entre sí. Se ha adoptado una arquitectura modular para mejorar la escalabilidad y el mantenimiento del proyecto.
+
+\subsection{Arquitectura del Sistema}
+El sistema se basa en una arquitectura cliente-servidor con separación de responsabilidades:
+
+\begin{itemize}
+	\item \textbf{Frontend:} Interfaz de usuario desarrollada con React.
+	\item \textbf{Backend:} API desarrollada en FastAPI que gestiona la lógica del negocio.
+	\item \textbf{Base de datos:} PostgreSQL para almacenamiento estructurado y Redis para almacenamiento en caché.
+	\item \textbf{Infraestructura:} Contenedores con Podman y orquestación con Kubernetes.
+\end{itemize}
+
+\subsection{Diagrama de Arquitectura}
+El siguiente diagrama muestra la arquitectura general del sistema:
+
+\begin{center}
+	\begin{otherlanguage}{english} % Desactiva babel temporalmente
+		\begin{tikzpicture}[
+			node distance=2cm and 1.5cm,
+			every node/.style={draw, rounded corners=3pt, minimum width=4.5cm, minimum height=1cm, align=center, font=\small},
+			every path/.style={draw, thick, -latex}
+			]
+			% Nodos principales
+			\node (client) {Cliente (React)};
+			\node[right=of client] (api) {API (FastAPI)};
+			\node[right=of api] (db) {Base de Datos (PostgreSQL)};
+			\node[below=of api] (cache) {Cache (Redis)};
+			
+			% Flechas de conexión
+			\draw[->] (client.east) -- (api.west);
+			\draw[->] (api.east) -- (db.west);
+			\draw[->] (api.south) -- (cache.north);
+		\end{tikzpicture}
+	\end{otherlanguage} % Reactivar babel en español
+\end{center}
+
+
+
+\section{Tecnologías Utilizadas}
+
+Para garantizar eficiencia y escalabilidad, se han seleccionado las siguientes tecnologías:
+
+\subsection{Lenguajes de Programación}
+\begin{itemize}
+	\item \textbf{Python:} Para el desarrollo del backend con FastAPI.
+	\item \textbf{JavaScript:} Para el desarrollo del frontend con React.
+\end{itemize}
+
+\subsection{Bases de Datos y Almacenamiento}
+\begin{itemize}
+	\item \textbf{PostgreSQL:} Base de datos relacional para almacenar datos estructurados.
+	\item \textbf{Redis:} Caché en memoria para mejorar el rendimiento.
+\end{itemize}
+
+\subsection{Herramientas de Desarrollo}
+\begin{itemize}
+	\item \textbf{Podman y Kubernetes:} Para la gestión de contenedores y orquestación.
+	\item \textbf{GitHub y GitHub Actions:} Para control de versiones e integración continua.
+	\item \textbf{Obsidian y LaTeX:} Para documentación estructurada del proyecto.
+\end{itemize}
+
+
+
+\section{Desarrollo y Ejecución}
+
+Esta sección describe el proceso de desarrollo, desde la configuración inicial hasta la ejecución del sistema.
+
+\subsection{Flujo de Desarrollo}
+El desarrollo sigue una metodología ágil con entregas iterativas. El proceso incluye:
+
+\begin{enumerate}
+	\item Definición de requisitos y planificación de sprints.
+	\item Desarrollo de módulos individuales (backend, frontend, base de datos).
+	\item Pruebas unitarias y de integración.
+	\item Despliegue en entorno de pruebas y ajustes finales.
+\end{enumerate}
+
+\subsection{Configuración del Entorno}
+Para configurar el entorno de desarrollo, se deben seguir los siguientes pasos:
+
+\begin{verbatim}
+	# Clonar el repositorio
+	git clone https://github.com/usuario/proyecto.git
+	cd proyecto
+	
+	# Crear entorno virtual en Python
+	python -m venv venv
+	source venv/bin/activate  # En Windows: venv\Scripts\activate
+	
+	# Instalar dependencias
+	pip install -r requirements.txt
+\end{verbatim}
+
+\subsection{Despliegue en Producción}
+El despliegue se realiza con Kubernetes y Podman. Se usa un `deployment.yaml` para definir los contenedores:
+
+\begin{verbatim}
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+	name: fastapi-app
+	spec:
+	replicas: 2
+	template:
+	spec:
+	containers:
+	- name: app
+	image: usuario/fastapi-app
+	ports:
+	- containerPort: 8000
+\end{verbatim}
+
+Una vez definido, se ejecuta:
+
+\begin{verbatim}
+	kubectl apply -f deployment.yaml
+\end{verbatim}
+

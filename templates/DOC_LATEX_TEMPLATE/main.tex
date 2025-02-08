@@ -1,0 +1,106 @@
+\documentclass[12pt,twoside,openany]{book}
+\usepackage[a4paper,margin=1in]{geometry} % Márgenes reducidos a 1 pulgada (2.54 cm)
+
+\usepackage[utf8]{inputenc} % Correcto para la codificación UTF-8
+\usepackage[T1]{fontenc} % Soporte para la codificación de fuente
+\usepackage[spanish, es-tabla]{babel}
+%\usepackage{babel-fix} % Soluciona problemas con TikZ en español
+
+%\usepackage{lmodern} % Carga una fuente que tiene soporte más amplio para caracteres
+%\usepackage{textcomp} % Soporte adicional para caracteres especiales
+\usepackage{helvet} % Uso de la fuente Helvética
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{graphicx}
+\graphicspath{{img/}}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[C]{\thepage} 
+\renewcommand{\headrulewidth}{0pt} % Elimina la línea en el encabezado
+\usepackage{amsmath}   % Para mejorar la presentación de ecuaciones matemáticas
+
+
+\usepackage{tikz} %Graficas de flujo
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+
+
+\usepackage{titlesec} % Formato de títulos
+\usepackage{lipsum} % Texto de relleno
+
+%\usepackage[numbers]{natbib} % Paquete para manejo de referencias con BibTeX con numeros
+\usepackage{natbib} % Paquete para manejo de referencias con BibTeX sin numeros
+
+\usepackage{pgfgantt}% diagramas de gantt
+\usepackage{rotating} % Permite rotar tablas y figuras
+
+\usepackage{listings} % Paquete para código fuente
+\usepackage{xcolor} % Para resaltar sintaxis con colores
+
+\lstset{ 
+	language=Python, % Especifica el lenguaje
+	basicstyle=\ttfamily\footnotesize, % Fuente monoespaciada
+	keywordstyle=\color{blue}, % Color de palabras clave
+	commentstyle=\color{gray}, % Color para comentarios
+	stringstyle=\color{red}, % Color para cadenas
+	frame=single, % Marco alrededor del código
+	breaklines=true, % Ajuste automático de líneas
+	tabsize=4, % Tamaño de tabulación
+	showstringspaces=false % No mostrar espacios en cadenas
+}
+
+\usepackage{pifont} % Para checkmarks y cruces
+
+
+% Definición de capítulos externos
+\includeonly{
+	capitulos/introduccion,
+	capitulos/marco_teorico,
+	capitulos/planificacion,
+	capitulos/estrategia_administrativa,
+	capitulos/estrategia_ejecutiva,
+	capitulos/implementacion,
+	capitulos/expansion,
+	capitulos/resultados,
+	capitulos/conclusiones,
+	capitulos/anexos
+}
+
+\begin{document}
+	
+	% Portada
+	\begin{titlepage}
+		\centering
+		\includegraphics[width=0.6\textwidth]{hexagon-logo.jpg}\\[3cm]
+		{\Huge \textbf{Título del Proyecto}}\\[1cm]
+		{\Large Autor}\\[1cm]
+		{\large \today}\\[1cm]
+		{\large Estado del Proyecto: En proceso}\\[2cm] % en proceso, en ejecución, concluido
+		
+		\vfill
+		\textit{Resumen del proyecto en unas pocas líneas...} % resumen ejecutivo
+		\vfill
+	\end{titlepage}
+	
+	% Índice
+	\tableofcontents
+	
+	% Capítulos
+	\include{capitulos/introduccion}
+	\include{capitulos/marco_teorico}
+	\include{capitulos/planificacion}
+	\include{capitulos/estrategia_administrativa}
+	\include{capitulos/estrategia_ejecutiva}
+	\include{capitulos/implementacion}
+	\include{capitulos/expansion}
+	\include{capitulos/resultados}
+	\include{capitulos/conclusiones}
+	\include{capitulos/anexos}
+	
+	% Bibliografía
+	\bibliographystyle{apalike}
+	\bibliography{bibliografia}
+	
+	
+	
+\end{document}

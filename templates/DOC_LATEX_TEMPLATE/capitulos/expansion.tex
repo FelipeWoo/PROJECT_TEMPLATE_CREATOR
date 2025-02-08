@@ -1,0 +1,65 @@
+\chapter{Mantenimiento y Soporte}
+
+
+Para garantizar la continuidad del sistema, se establece un plan de mantenimiento basado en las siguientes estrategias:
+
+\section{Plan de Actualizaciones}
+Se seguirán ciclos de actualización trimestrales, con:
+\begin{itemize}
+	\item **Versiones menores:** Corrección de errores y mejoras de seguridad.
+	\item **Versiones mayores:** Nuevas funcionalidades y mejoras de rendimiento.
+\end{itemize}
+
+\section{Soporte Técnico}
+Se ofrece un esquema de soporte con tres niveles:
+\begin{itemize}
+	\item **Nivel 1:** Resolución de problemas comunes mediante documentación y FAQs.
+	\item **Nivel 2:** Soporte técnico especializado con asistencia remota.
+	\item **Nivel 3:** Soporte avanzado para incidencias críticas en infraestructura.
+\end{itemize}
+
+\section{Monitoreo y Seguridad}
+Para garantizar la estabilidad del sistema, se implementan:
+\begin{itemize}
+	\item Monitoreo en tiempo real con **Prometheus y Grafana**.
+	\item Auditorías de seguridad trimestrales para detectar vulnerabilidades.
+	\item Backups automáticos en servidores distribuidos.
+\end{itemize}
+
+\section{Planes de Contingencia}
+
+Para minimizar el impacto de posibles fallos críticos, se establecen estrategias de contingencia que aseguren la continuidad del sistema.
+
+\subsection{Gestión de Fallos Críticos}
+Se contemplan distintos tipos de fallos y sus estrategias de respuesta:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|p{5cm}|p{7cm}|}
+		\hline
+		\textbf{Tipo de Falla} & \textbf{Estrategia de Contingencia} \\ \hline
+		Fallo del Servidor Principal & Cambio automático a servidor de respaldo con balanceo de carga. \\ \hline
+		Corrupción de Base de Datos & Restauración desde backup más reciente (frecuencia diaria). \\ \hline
+		Ataque Cibernético & Implementación de firewall avanzado y bloqueo de IPs sospechosas. \\ \hline
+		Errores en el Código & Rollback automático a la versión estable más reciente. \\ \hline
+		Pérdida de Conectividad & Uso de CDN y servidores distribuidos en múltiples regiones. \\ \hline
+	\end{tabular}
+	\caption{Planes de Contingencia para Fallos Críticos}
+\end{table}
+
+\subsection{Sistema de Respaldo}
+Para garantizar la integridad de los datos, se implementarán:
+\begin{itemize}
+	\item **Backups Automáticos:** Copias de seguridad diarias en servidores externos.
+	\item **Replicación de Base de Datos:** Sincronización en tiempo real con un servidor espejo.
+	\item **Redundancia de Infraestructura:** Uso de balanceo de carga para distribuir el tráfico en caso de falla.
+\end{itemize}
+
+\subsection{Protocolos de Recuperación}
+En caso de un incidente grave, se seguirá el siguiente protocolo de respuesta:
+\begin{enumerate}
+	\item **Detección del problema:** Monitoreo en tiempo real con alertas automáticas.
+	\item **Notificación del equipo técnico:** Comunicación inmediata a los responsables del sistema.
+	\item **Ejecución del plan de contingencia:** Aplicación de soluciones predefinidas según el tipo de fallo.
+	\item **Análisis posterior al incidente:** Evaluación de la causa raíz y mejoras en la estrategia de contingencia.
+\end{enumerate}

@@ -1,0 +1,84 @@
+\appendix
+\chapter{Anexos}
+
+Este apartado contiene información complementaria relevante para el proyecto, como documentación técnica, fragmentos de código, diagramas y otros elementos que respaldan el desarrollo.
+
+---
+
+\section{Configuraciones Técnicas}
+
+\subsection{Configuración del Servidor}
+
+La siguiente configuración representa un ejemplo de un archivo de configuración para el despliegue en un servidor basado en *Docker Compose*:
+
+\begin{verbatim}
+	version: '3.8'
+	
+	services:
+	app:
+	image: usuario/fastapi-app:latest
+	ports:
+	- "8000:8000"
+	depends_on:
+	- db
+	environment:
+	- DATABASE_URL=postgresql://user:password@db:5432/appdb
+	
+	db:
+	image: postgres:latest
+	restart: always
+	environment:
+	- POSTGRES_USER=user
+	- POSTGRES_PASSWORD=password
+	- POSTGRES_DB=appdb
+\end{verbatim}
+
+
+\section{Fragmentos de Código}
+
+A continuación, se presenta un fragmento de código en Python para la conexión con la base de datos usando SQLAlchemy en FastAPI:
+
+\begin{lstlisting}
+	from sqlalchemy import create_engine
+	from sqlalchemy.orm import sessionmaker
+	
+	DATABASE_URL = "postgresql://user:password@localhost/appdb"
+	engine = create_engine(DATABASE_URL)
+	SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+\end{lstlisting}
+
+
+\section{Diagrama de Flujo}
+
+El siguiente diagrama representa el flujo de autenticación de usuarios en el sistema:
+
+\begin{center}
+	\begin{otherlanguage}{english} % Desactiva babel temporalmente
+		\begin{tikzpicture}[
+			node distance=1.5cm and 3cm,
+			align=center,
+			every node/.style={draw, rounded corners=3pt, minimum width=5cm, minimum height=1cm, font=\small},
+			every path/.style={draw, thick, -latex}
+			]
+			
+			% Nodos del diagrama
+			\node (inicio) {Inicio de sesión};
+			\node[below=of inicio] (verificar) {Verificar credenciales};
+			\node[left=of verificar] (error) {Error: Credenciales inválidas};
+			\node[below=of verificar] (token) {Generar Token de Sesión};
+			\node[below=of token] (acceso) {Acceso permitido};
+			
+			% Flechas de conexión
+			\draw[->] (inicio.south) -- (verificar.north);
+			\draw[->] (verificar.west) -- (error.east);
+			\draw[->] (verificar.south) -- (token.north);
+			\draw[->] (token.south) -- (acceso.north);
+	
+		\end{tikzpicture}
+	\end{otherlanguage} % Reactivar babel en español
+\end{center}
+
+		
+\section{Especificaciones Técnicas}
+
+\begin{itemize} \item Lenguajes usados: Python (FastAPI), JavaScript (React), SQL (PostgreSQL). \item Infraestructura: Contenedores con Podman, orquestación con Kubernetes. \item Autenticación: JWT para manejo de sesiones seguras. \item Pruebas realizadas: Unitarias y de integración con PyTest. \item Monitoreo: Logs en tiempo real con Grafana y Prometheus. \end{itemize}
