@@ -3,95 +3,146 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 import subprocess
 
-# Plantilla para README.md
+# README.md Template
 README_TEMPLATE = """# {title_es} | {title_en}
 
 ## Resumen
-{summary_es}
+Este proyecto...
 
 ## Abstract
-{abstract}
+This repository contains the source code and resources necessary for...
 
 ## Installation
-{installation}
+1. Clone the repository:  
+   ```sh
+   git clone https://github.com/user/project.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd project
+   ```
+3. Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
 
 ## Usage
-{usage}
+Run the following command to start the project:
+```sh
+python main.py
+```
 
 ## Contribution
-{contribution}
+If you wish to contribute, follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-new`).
+3. Make changes and commit them (`git commit -m "Description of changes"`).
+4. Submit a **pull request**.
+
+## Keywords
+key|words|project|related
 
 ## License
-{license}
+This project is under the MIT license.
 """
 
-# Plantilla para STRUCTURE.md
+# STRUCTURE.md Template
 STRUCTURE_TEMPLATE = """
-# 📂 Proyecto: {title_en}
+# Project: {title_en}
 
-## 📌 Estructura del Proyecto
+## Project Structure
 
-```
-📂 {project_folder}/
-│── 📂 src/                  # Archivos fuente (código, diseños, modelos, etc.)
-│── 📂 docs/                 # Documentación (manuales, reportes, especificaciones)
-│── 📂 assets/               # Recursos gráficos, imágenes, videos, íconos, modelos 3D, etc.
-│── 📂 data/                 # Archivos de datos, bases de datos, hojas de cálculo
-│── 📂 exports/              # Archivos generados (PDFs, compilaciones, entregables)
-│── 📂 config/               # Configuraciones y variables del proyecto
-│── 📂 tests/                # Pruebas (código, calidad, validaciones)
-│── 📂 logs/                 # Archivos de registro (errores, eventos, cambios)
-│── 📂 backups/              # Copias de seguridad de datos y configuraciones
-│── 📂 references/           # Documentos de referencia, papers, estándares, normas
-│── 📂 templates/            # Plantillas reutilizables para documentos, código, diseño
-│── 📂 scripts/              # Automatizaciones y utilidades
-│── README.md                # Descripción general del proyecto
-│── LICENSE                  # Tipo de licencia del proyecto
-│── .gitignore               # Archivos y carpetas a ignorar en Git
-│── Makefile                 # Automatización de tareas (opcional)
-```
+### src/
+Contains the project's source files, such as code, designs, 3D models, or any other necessary resources.
+
+### docs/
+Stores project documentation, including manuals, technical reports, specifications, and diagrams.
+
+### assets/
+Includes graphical and multimedia resources, such as images, videos, icons, 3D models, and design files.
+
+### data/
+Contains data files, databases, spreadsheets, or any other structured information storage.
+
+### exports/
+Used to store generated or compiled files, such as PDFs, reports, deliverables, and binaries.
+
+### config/
+Includes project configuration files, such as environment variables and custom settings.
+
+### tests/
+Contains automated project tests, including unit and integration tests.
+
+### logs/
+Stores activity logs, error logs, and system events to facilitate debugging and project monitoring.
+
+### backups/
+Backup copies of data, configurations, or critical files to prevent information loss.
+
+### references/
+Contains reference documents, standards, norms, or papers related to the project.
+
+### templates/
+Reusable templates for code, design, or documentation.
+
+### scripts/
+Automation tools and auxiliary scripts for project management.
+
+### README.md
+A file with the general project description, including installation and usage instructions.
+
+### LICENSE
+Specifies the type of license used in the project.
+
+### .gitignore
+A list of files and folders that should not be tracked by Git.
+
+### Makefile
+An optional file for automating project tasks and commands.
 """
 
 def create_project_structure(project_path, project_name, title_es, title_en):
-    # Definir las carpetas
+    # Convert to uppercase and replace spaces with underscores
+    project_name = project_name.upper().replace(" ", "_")
+    title_es = title_es.upper().replace(" ", "_")
+    title_en = title_en.upper().replace(" ", "_")
+    
+    # Define folders
     folders = [
         "src", "docs", "assets", "data", "exports", "config", "tests", "logs",
         "backups", "references", "templates", "scripts"
     ]
     
-    # Crear directorio base del proyecto
+    # Create project root directory
     project_root = os.path.join(project_path, project_name)
     os.makedirs(project_root, exist_ok=True)
     
-    # Crear subcarpetas
+    # Create subdirectories
     for folder in folders:
         os.makedirs(os.path.join(project_root, folder), exist_ok=True)
     
-    # Crear archivos README.md y STRUCTURE.md
+    # Create README.md and STRUCTURE.md files
     readme_content = README_TEMPLATE.format(
         title_es=title_es,
-        title_en=title_en,
-        summary_es="Resumen del proyecto...",
-        abstract="Descripción detallada...",
-        installation="Instrucciones de instalación...",
-        usage="Ejemplo de uso...",
-        contribution="Cómo contribuir...",
-        license="Tipo de licencia..."
+        title_en=title_en
     )
-    structure_content = STRUCTURE_TEMPLATE.format(title_en=title_en, project_folder=project_name)
+    structure_content = STRUCTURE_TEMPLATE.format(
+      title_en=title_en, 
+      project_folder=project_name
+    )
     
     with open(os.path.join(project_root, "README.md"), "w", encoding="utf-8") as f:
         f.write(readme_content)
     with open(os.path.join(project_root, "STRUCTURE.md"), "w", encoding="utf-8") as f:
         f.write(structure_content)
     
-    # Crear archivos adicionales
+    # Create additional files
     open(os.path.join(project_root, "LICENSE"), "w").close()
     open(os.path.join(project_root, ".gitignore"), "w").close()
     
-    # Inicializar Git
+    # Initialize Git
     subprocess.run(["git", "init"], cwd=project_root)
-    messagebox.showinfo("Éxito", f"Proyecto '{title_es}' creado con éxito en {project_root}")
+    messagebox.showinfo("Success", f"Project '{title_es}' successfully created in {project_root}")
 
 def browse_directory():
     folder_selected = filedialog.askdirectory()
@@ -106,38 +157,10 @@ def create_project():
     project_location = entry_location.get().strip()
     
     if not title_es or not title_en or not project_name or not project_location:
-        messagebox.showwarning("Error", "Todos los campos son obligatorios")
+        messagebox.showwarning("Error", "All fields are required")
         return
     
     create_project_structure(project_location, project_name, title_es, title_en)
-
-def build_gui():
-    global entry_title_es, entry_title_en, entry_name, entry_location
-    root = tk.Tk()
-    root.title("Generador de Proyectos")
-    root.geometry("400x300")
-    
-    tk.Label(root, text="Título del Proyecto (Español)").pack(pady=5)
-    entry_title_es = tk.Entry(root, width=50)
-    entry_title_es.pack()
-    
-    tk.Label(root, text="Título del Proyecto (Inglés)").pack(pady=5)
-    entry_title_en = tk.Entry(root, width=50)
-    entry_title_en.pack()
-    
-    tk.Label(root, text="Nombre de la Carpeta").pack(pady=5)
-    entry_name = tk.Entry(root, width=50)
-    entry_name.pack()
-    
-    tk.Label(root, text="Ubicación").pack(pady=5)
-    frame = tk.Frame(root)
-    frame.pack()
-    entry_location = tk.Entry(frame, width=40)
-    entry_location.pack(side=tk.LEFT)
-    tk.Button(frame, text="...", command=browse_directory).pack(side=tk.LEFT)
-    
-    tk.Button(root, text="Crear Proyecto", command=create_project).pack(pady=20)
-    root.mainloop()
 
 if __name__ == "__main__":
     build_gui()
