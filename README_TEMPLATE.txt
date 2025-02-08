@@ -26,6 +26,9 @@ Run the following command to start the project:
 python main.py
 ```
 
+## Justification
+This project was developed to ...
+
 ## Contribution
 If you wish to contribute, follow these steps:
 1. Fork the repository.
@@ -34,7 +37,7 @@ If you wish to contribute, follow these steps:
 4. Submit a **pull request**.
 
 ## Keywords
-key|words|project|related
+KEY | WORDS | PROJECT | RELATED
 
 ## License
 This project is under the MIT license.
