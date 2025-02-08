@@ -1,0 +1,111 @@
+# Project: {title_en}
+
+## Project Structure
+
+### src/
+Contains the project's source files, such as code, designs, 3D models, or any other necessary resources.
+
+**Examples:**
+- `main.py` → Main application entry point
+- `module/` → Submodule containing specific functionality
+- `index.html` → Starting page for web-based projects
+
+### docs/
+Stores project documentation, including manuals, technical reports, specifications, and diagrams.
+
+**Examples:**
+- `user_manual.md` → End-user guide
+- `api_reference.pdf` → API specification
+- `architecture_diagram.png` → System architecture overview
+
+### assets/
+Includes graphical and multimedia resources, such as images, videos, icons, 3D models, and design files.
+
+**Examples:**
+- `logo.png` → Project logo
+- `intro_video.mp4` → Introduction video
+- `background.jpg` → Background image used in UI
+
+### data/
+Contains data files, databases, spreadsheets, or any other structured information storage.
+
+**Examples:**
+- `dataset.csv` → Dataset for machine learning
+- `database.sqlite` → Local database file
+- `config.json` → Configuration settings for the application
+
+### exports/
+Used to store generated or compiled files, such as PDFs, reports, deliverables, and binaries.
+
+**Examples:**
+- `final_report.pdf` → Project report ready for delivery
+- `compiled_app.exe` → Compiled application executable
+- `website.zip` → Compressed website version
+
+### config/
+Includes project configuration files, such as environment variables and custom settings.
+
+**Examples:**
+- `.env` → Environment variables for deployment
+- `settings.yaml` → Configuration file for tuning parameters
+- `docker-compose.yml` → Docker setup file
+
+### tests/
+Contains automated project tests, including unit and integration tests.
+
+**Examples:**
+- `test_main.py` → Unit tests for main application logic
+- `integration_tests/` → Folder containing integration testing scripts
+- `mock_data.json` → Sample data used for testing
+
+### logs/
+Stores activity logs, error logs, and system events to facilitate debugging and project monitoring.
+
+**Examples:**
+- `error.log` → System error logs
+- `access.log` → Web server access logs
+- `debug.log` → Debugging information for developers
+
+### backups/
+Backup copies of data, configurations, or critical files to prevent information loss.
+
+**Examples:**
+- `backup_20240101.zip` → Backup of the database taken on January 1, 2024
+- `config_backup.yaml` → Backup of configuration settings
+- `project_snapshot.tar.gz` → Full project backup snapshot
+
+### references/
+Contains reference documents, standards, norms, or papers related to the project.
+
+**Examples:**
+- `IEEE_standard.pdf` → Technical reference document
+- `design_guidelines.md` → UI/UX design standards
+- `whitepaper.pdf` → Research paper relevant to the project
+
+### templates/
+Reusable templates for code, design, or documentation.
+
+**Examples:**
+- `email_template.html` → Standard email format
+- `report_template.docx` → Template for project reports
+- `ui_component.css` → Predefined styles for UI elements
+
+### scripts/
+Automation tools and auxiliary scripts for project management.
+
+**Examples:**
+- `deploy.sh` → Deployment automation script
+- `build_project.py` → Script to automate project builds
+- `cleanup.bat` → Windows batch script to clean temporary files
+
+### README.md
+A file with the general project description, including installation and usage instructions.
+
+### LICENSE
+Specifies the type of license used in the project.
+
+### .gitignore
+A list of files and folders that should not be tracked by Git.
+
+### Makefile
+An optional file for automating project tasks and commands.

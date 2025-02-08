@@ -7,3 +7,4 @@ Estandarizar la distribución del carpetas y archivos de cualquier proyecto. No 
 ## Justificación 
 
 El desarrollo de un catálogo de proyectos. Tener una lista de proyectos con una descripción breve, permite tomar decisiones futuras de forma eficiente.
+
