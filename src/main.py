@@ -33,9 +33,9 @@ def create_project_structure(project_path, project_name, title_es, title_en, aut
         os.makedirs(os.path.join(project_root, folder), exist_ok=True)
     
     # Load README and STRUCTURE templates
-    readme_template = load_template("README_TEMPLATE.txt")
-    structure_template = load_template("STRUCTURE_TEMPLATE.txt")
-    license_template = load_template("MIT_LICENSE_TEMPLATE.txt")
+    readme_template = load_template("templates/README_TEMPLATE.txt")
+    structure_template = load_template("templates/STRUCTURE_TEMPLATE.txt")
+    license_template = load_template("templates/MIT_LICENSE_TEMPLATE.txt")
     
     # Format templates with project information
     readme_content = readme_template.format(
@@ -55,14 +55,14 @@ def create_project_structure(project_path, project_name, title_es, title_en, aut
     # Write Files with content
     with open(os.path.join(project_root, "README.md"), "w", encoding="utf-8") as f:
         f.write(readme_content)
-    with open(os.path.join(project_root, "STRUCTURE.md"), "w", encoding="utf-8") as f:
+    with open(os.path.join(project_root, "docs/STRUCTURE.md"), "w", encoding="utf-8") as f:
         f.write(structure_content)
     with open(os.path.join(project_root, "LICENSE"), "w", encoding="utf-8") as f:
         f.write(license_content)
     
     # Create additional files
     open(os.path.join(project_root, ".gitignore"), "w").close()
-    today = datetime.now().strftime("%Y_%m_%d")
+    today = datetime.now().strftime("docs/%Y_%m_%d")
     open(os.path.join(project_root, today), "w").close()
 
     
