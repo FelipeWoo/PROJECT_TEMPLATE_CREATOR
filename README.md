@@ -9,11 +9,11 @@ The **Project Template Creator** is a Python application that allows users to ge
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/felipewoo/project-template-creator.git
+   git clone https://github.com/FelipeWoo/PROJECT_TEMPLATE_CREATOR.git
    ```
 2. Navigate to the project directory:
    ```sh
-   cd project-template-creator
+   cd PROJECT_TEMPLATE_CREATOR
    ```
 3. Install required dependencies:
    ```sh
